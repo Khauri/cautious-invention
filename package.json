@@ -1,0 +1,22 @@
+{
+  "name": "chronicle",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "storybook": "start-storybook -s ./static -p 6006 --no-manager-cache",
+    "build-storybook": "build-storybook"
+  },
+  "volta": {
+    "node": "14.18.3"
+  },
+  "dependencies": {
+    "@storybook/addon-docs": "^6.4.13",
+    "@storybook/addon-essentials": "^6.4.13",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/marko": "^7.3.0",
+    "@storybook/preset-scss": "^1.0.3",
+    "storybook-builder-vite": "^0.1.13",
+    "vite": "^2.7.13"
+  }
+}
