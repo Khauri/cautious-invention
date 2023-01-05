@@ -1,0 +1,13 @@
+{
+  "name": "@chronicle/core",
+  "module": "index.ts",
+  "type": "module",
+  "version": "0.0.1",
+  "devDependencies": {
+    "bun-types": "^0.2.0"
+  },
+  "dependencies": {
+    "type-fest": "^3.4.0",
+    "zod": "^3.20.2"
+  }
+}
