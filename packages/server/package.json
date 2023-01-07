@@ -3,8 +3,13 @@
   "module": "index.ts",
   "type": "module",
   "version": "0.0.1",
+  "scripts": {
+    "build": "esbuild index.tsx --platform=node --format=esm --packages=external --bundle --outfile=dist/index.js",
+    "start": "node ./dist/index.js"
+  },
   "devDependencies": {
-    "bun-types": "^0.2.0"
+    "bun-types": "^0.2.0",
+    "esbuild": "^0.16.4"
   },
   "dependencies": {
     "@trpc/server": "^10.5.0",

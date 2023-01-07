@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Text} from 'ink';
 import * as z from 'zod';
+import * as chronicleClient from '@chronicle/client';
 
 const {
     CHRONICLE_PORT_SERVER = 5050,
@@ -17,6 +18,23 @@ export const props = z.object({
 export type ServeOptions = z.infer<typeof props>;
 
 export default function serve(opts: ServeOptions) {
-    console.log(opts);
-    return <Text>Serve not yet implemented</Text>
+    const [client, setClient] = useState({isStarted: false, port: null});
+    useEffect(async () => {
+        if(!opts.serverOnly) {
+            const {port} = await chronicleClient.start({port: opts.clientPort});
+            setClient({
+                isStarted: true,
+                port
+            });
+        }
+    }, []);
+    return (
+        <>
+            {
+                client.isStarted 
+                    ? <Text>Client running on {client.port} </Text>
+                    : <Text>Starting client... </Text>
+            }
+        </>
+    );
 }
